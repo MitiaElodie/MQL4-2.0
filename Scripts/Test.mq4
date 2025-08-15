@@ -13,19 +13,13 @@
 //+------------------------------------------------------------------+
 void OnStart()
   {
-//---
-    // Get the latest candle - 1 in weekly timeframe
-    MqlRates latestCandle[];
-    if (CopyRates(_Symbol, PERIOD_W1, 1, 1, latestCandle))
-    {
-        if (IsLastWeeklyCandleCloseBullish(latestCandle[0]))
-        {
-            Alert("The latest weekly candle is bullish.");
-        }
-        else
-        {
-            Alert("The latest weekly candle is bearish.");
-        }
-    }
+      if (IsLastWeeklyCandleCloseBullish())
+      {
+          Alert("The last weekly candle closed bullish.");
+      }
+      else if (IsLastWeeklyCandleCloseBearish())
+      {
+          Alert("The last weekly candle closed bearish.");
+      }
   }
 //+------------------------------------------------------------------+
